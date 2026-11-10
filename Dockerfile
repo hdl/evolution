@@ -26,3 +26,5 @@ ENV \
   LP_NUM_THREADS="" \
   LP_PERF="" \
   XVFB_WHD="1920x1080x24"
+
+COPY xrun.sh /xrun.sh

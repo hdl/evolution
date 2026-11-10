@@ -2,8 +2,9 @@
 
 # Authors:
 #   Unai Martinez-Corral
+#     <unai.martinezcorral@ehu.eus>
 #
-# Copyright 2021-2022 Unai Martinez-Corral <unai.martinezcorral@ehu.eus>
+# Copyright 2021-2026 Unai Martinez-Corral
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,10 +20,32 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
+set -euo pipefail
+
 OUTPUT_NAME="${GOURCE_REPO:-.}/${GOURCE_NAME:-gource}"
 
 xvfb-run --auto-servernum --server-args="-screen 0, ${GOURCE_RESOLUTION:-1920x1080}x24" \
-  $(dirname "$0")/run.sh $@ -o - |
+  gource \
+    --key \
+    -c 0.7 \
+    --highlight-users \
+    --highlight-dirs \
+    --hide bloom,filenames \
+    --hash-seed 9182 \
+    --date-format '%Y / %m / %d [%W]' \
+    --font-colour aaaaaa \
+    --font-size 24 \
+    --caption-size 4 \
+    --colour-images \
+    --output-framerate 60 \
+    --dir-name-depth 2 \
+    --file-idle-time 0 \
+    --frameless \
+    -"${GOURCE_RESOLUTION:-1920x1080}" \
+    -a "${GOURCE_AUTO_SKIP_SECONDS:-0.05}" \
+    -s "${GOURCE_SECONDS_PER_DAY:-0.15}" \
+    --title "${GOURCE_TITLE:-Title}" \
+    "$@" -o - |
   ffmpeg -y \
     -r 60 \
     -f image2pipe \
