@@ -1,7 +1,8 @@
 # Authors:
 #   Unai Martinez-Corral
+#     <unai.martinezcorral@ehu.eus>
 #
-# Copyright 2021-2022 Unai Martinez-Corral <unai.martinezcorral@ehu.eus>
+# Copyright 2021-2026 Unai Martinez-Corral
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -21,9 +22,6 @@ name: Gource
 
 on:
   push:
-    paths:
-      - '.github/workflows/Gource.yml'
-      - 'gource/**'
   schedule:
     - cron: '0 0 1 * *'
   workflow_dispatch:
@@ -39,8 +37,7 @@ jobs:
       mailmap: ${{ steps.params.outputs.mailmap }}
     steps:
 
-    - name: '🧰 Checkout'
-      uses: actions/checkout@v6
+    - uses: actions/checkout@v7
 
     - name: Convert YAML config to JSON string
       id: params
@@ -50,9 +47,7 @@ jobs:
         from subprocess import check_call
         import yaml
 
-        ROOT = Path('gource').resolve()
-        LogDir = ROOT / 'logs'
-        LogDir.mkdir(exist_ok=True)
+        ROOT = Path('.').resolve()
 
         enabled = [
             'EDAA',
@@ -110,7 +105,7 @@ jobs:
     steps:
 
     - name: Get logs
-      uses: umarcor/umarcor/gource/logs@main
+      uses: $/logs
       with:
         cfg: ${{ needs.Params.outputs.cfg }}
         mailmap: ${{ needs.Params.outputs.mailmap }}
@@ -137,7 +132,7 @@ jobs:
         print(f"::set-output name=job::{job!s}")
 
     - name: Combine logs and generate video
-      uses: umarcor/umarcor/gource/video@main
+      uses: $/video
       with:
         artifact: glogs
         job: ${{ steps.job.outputs.job }}
@@ -155,7 +150,7 @@ jobs:
         tar czvf glogs.tar.gz glogs
         rm -rf glogs
         find . -size +2G -exec rm {} \;
-    - uses: pyTooling/Actions/releaser@r0
+    - uses: pyTooling/Actions/releaser@r6
       with:
         token: ${{ github.token }}
         files: artifact/**/*
