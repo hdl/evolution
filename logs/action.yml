@@ -21,13 +21,8 @@
 name: Get logs and prepare jobs metadata
 
 inputs:
-  config:
-    description: YAML dictionary with fields 'title', 'tree' and 'args'.
-    required: true
   tasks:
     description: List of videos to generate.
-    required: false
-  mailmap:
     required: false
 
 outputs:
@@ -38,24 +33,24 @@ runs:
   using: 'composite'
   steps:
 
+    - uses: actions/download-artifact@v7
+      with:
+        name: hdle-config
+        path: hdle-config
+
     - shell: bash
       id: logs
       env:
         HDLE_TASKS: ${{ inputs.tasks }}
       run: |
-        TMP_HDLE='${{ runner.temp }}/hdle'
-        mkdir -p "$TMP_HDLE"
-        cp '${{ inputs.config }}' "$TMP_HDLE"/config.yaml
-        if [[ -n '${{ inputs.mailmap }}' ]]; then
-          cp '${{ inputs.mailmap }}' "$TMP_HDLE"/.mailmap
-          export HDLE_MAILMAP=/tmp/hdle/.mailmap
-        fi
+        if [ -f 'hdle-config/.mailmap' ]; then export HDLE_MAILMAP=/tmp/hdle/.mailmap; fi
         docker run --rm \
           -v "${{ github.action_path }}:/action:ro" \
-          -v "${{ runner.temp }}:/tmp" \
+          -v "${{ runner.temp }}/glogs:/tmp/glogs" \
+          -v "$(pwd)/hdle-config":/tmp/hdle \
           -v "$GITHUB_OUTPUT:/github_output" \
           -e GITHUB_OUTPUT=/github_output \
-          -e HDLE_CONFIG=/tmp/hdle/config.yaml \
+          -e HDLE_CONFIG=/tmp/hdle/config.yml \
           -e HDLE_MAILMAP \
           -e HDLE_TASKS \
           ghcr.io/umarcor/gource/xrun \

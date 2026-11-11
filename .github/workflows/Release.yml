@@ -18,52 +18,41 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
-name: Gource
+name: Release
 
 on:
   push:
+  pull_request:
   schedule:
     - cron: '0 0 1 * *'
   workflow_dispatch:
 
 jobs:
 
-
-  Logs:
+  Config:
     runs-on: ubuntu-latest
-    outputs:
-      jobs: ${{ steps.logs.outputs.jobs }}
     steps:
-
     - uses: actions/checkout@v7
-
-    - uses: $/logs
-      id: logs
+    - run: |
+        mkdir hdle-config
+        cp config.yml .mailmap hdle-config
+    - uses: actions/upload-artifact@v6
       with:
-        config: config.yml
-        mailmap: .mailmap
-        tasks: |
-          ghdl
-          nvc
+        name: hdle-config
+        path: hdle-config/*
+        include-hidden-files: true
+        if-no-files-found: error
 
-
-  Videos:
-    needs: Logs
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        include: ${{ fromJSON(needs.Logs.outputs.jobs) }}
-    name: ${{ matrix.name }} | ${{ matrix.title }}
-    steps:
-    - uses: $/video
-      with:
-        artifact: glogs
-        job: ${{ toJSON(matrix) }}
-
+  Evolution:
+    needs: Config
+    uses: $/.github/workflows/Evolution.yml
+    with:
+      tasks: |
+        DBHI
+        HDLC
 
   Release:
-    needs: Videos
+    needs: Evolution
     if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     steps:
@@ -83,6 +72,7 @@ jobs:
     - run: |
         python3 .github/metadata.py
         find artifact -name '*.json' -delete
+        rm -rf artifact/hdle-config
         cp view/index.html view/style.css view/script.js page/
         cd page
         git add .
