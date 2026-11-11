@@ -41,7 +41,7 @@ jobs:
     - uses: pyTooling/Actions/with-post-step@r9
       with:
         main: |
-          docker build -t ghcr.io/umarcor/gource/xrun .
+          docker build -t ghcr.io/hdl/gource/xrun .
           echo '${{ github.token }}' | docker login ghcr.io -u gha --password-stdin
-          docker push ghcr.io/umarcor/gource/xrun
+          docker push ghcr.io/hdl/gource/xrun
         post: docker logout ghcr.io

@@ -57,7 +57,7 @@ check_call([
   "/wrk",
   "-e", f"GOURCE_TITLE={job['title']}",
   "-e", f"GOURCE_NAME={job['name']}",
-  "ghcr.io/umarcor/gource/xrun",
+  "ghcr.io/hdl/gource/xrun",
   "/xrun.sh",
 ] + (job['args'] if 'args' in job else []) + [
   "combined.log"

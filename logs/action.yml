@@ -53,7 +53,7 @@ runs:
           -e HDLE_CONFIG=/tmp/hdle/config.yml \
           -e HDLE_MAILMAP \
           -e HDLE_TASKS \
-          ghcr.io/umarcor/gource/xrun \
+          ghcr.io/hdl/gource/xrun \
           /action/logs.py
 
     - uses: actions/upload-artifact@v6

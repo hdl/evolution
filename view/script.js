@@ -1,11 +1,9 @@
-const RELEASE = "https://github.com/umarcor/umarcor/releases/download/gource-videos/";
-const API = "https://api.github.com/repos/umarcor/umarcor/releases/tags/gource-videos";
+const RELEASE = "https://github.com/hdl/evolution/releases/download/evolution/";
+const API = "https://api.github.com/repos/hdl/evolution/releases/tags/evolution";
 const NAMES = [
-  "CHIPSAlliance", "CoCoTb", "DBHI", "EDAA", "EDAA-Utilities", "EDAA-Workflows",
-  "F4PGA", "FPGAwars", "HDL", "HDLC", "Hitchhiker", "LibreCores", "LiteX",
-  "NEORV32", "SymbiFlow", "VTR", "VUnit", "YosysHQ", "f4pga-core", "ghdl",
-  "iverilog", "openFPGALoader", "osvb", "osvb-noroot", "osvvm", "pyTooling",
-  "renode", "spf13", "verilator"
+  "CHIPSAlliance", "CoCoTb", "DBHI", "EDAA", "F4PGA", "HDL", "HDLC",
+  "LibreCores", "LiteX", "NEORV32", "VTR", "VUnit", "YosysHQ", "ghdl",
+  "iverilog", "nvc", "openFPGALoader", "osvb", "osvvm", "renode", "verilator"
 ];
 const FALLBACK = NAMES.map((name) => ({
   name,
