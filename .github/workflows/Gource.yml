@@ -64,8 +64,10 @@ jobs:
 
   Release:
     needs: Videos
+    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v7
     - uses: actions/download-artifact@v7
       with:
         path: artifact
@@ -74,6 +76,21 @@ jobs:
         tar czvf glogs.tar.gz glogs
         rm -rf glogs
         find . -size +2G -exec rm {} \;
+    - uses: actions/checkout@v7
+      with:
+        ref: gh-pages
+        path: page
+    - run: |
+        python3 .github/metadata.py
+        find artifact -name '*.json' -delete
+        cp view/index.html view/style.css view/script.js page/
+        cd page
+        git add .
+        git \
+          -c user.name='github-actions[bot]' \
+          -c user.email='Pages@GitHubActions' \
+          commit -m 'page: refresh gource gallery and metadata' || true
+        git push
     - uses: pyTooling/Actions/releaser@r6
       with:
         token: ${{ github.token }}
