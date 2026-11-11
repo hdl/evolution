@@ -10,6 +10,7 @@ RUN apk -U add --no-cache \
     gource \
     llvm20-libs \
     mesa-dri-gallium \
+    py3-pyaml \
     setxkbmap \
     xdpyinfo \
     xrandr \

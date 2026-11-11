@@ -1,7 +1,8 @@
 # Authors:
 #   Unai Martinez-Corral
+#     <unai.martinezcorral@ehu.eus>
 #
-# Copyright 2021-2022 Unai Martinez-Corral <unai.martinezcorral@ehu.eus>
+# Copyright 2021-2026 Unai Martinez-Corral
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,60 +18,50 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
-name: Gource (get logs)
-description: Generate Gource logs of SCM repositories.
+name: Get logs and prepare jobs metadata
+
 inputs:
-  cfg:
-    description: Dictionary of objects with fields 'name', 'title', 'tree' and 'args'.
+  config:
+    description: YAML dictionary with fields 'title', 'tree' and 'args'.
     required: true
+  tasks:
+    description: List of videos to generate.
+    required: false
   mailmap:
-    description: Comma separated 'mailmap' entries.
     required: false
-    default: ''
-  artifact:
-    description: Name of the artifact containing the logs.
-    required: false
-    default: glogs
+
+outputs:
+  jobs:
+    value: ${{ steps.logs.outputs.jobs }}
 
 runs:
   using: 'composite'
   steps:
 
-  - shell: bash
-    run: |
-      sudo apt update -qq
-      sudo apt install -y gource
+    - shell: bash
+      id: logs
+      env:
+        HDLE_TASKS: ${{ inputs.tasks }}
+      run: |
+        TMP_HDLE='${{ runner.temp }}/hdle'
+        mkdir -p "$TMP_HDLE"
+        cp '${{ inputs.config }}' "$TMP_HDLE"/config.yaml
+        if [[ -n '${{ inputs.mailmap }}' ]]; then
+          cp '${{ inputs.mailmap }}' "$TMP_HDLE"/.mailmap
+          export HDLE_MAILMAP=/tmp/hdle/.mailmap
+        fi
+        docker run --rm \
+          -v "${{ github.action_path }}:/action:ro" \
+          -v "${{ runner.temp }}:/tmp" \
+          -v "$GITHUB_OUTPUT:/github_output" \
+          -e GITHUB_OUTPUT=/github_output \
+          -e HDLE_CONFIG=/tmp/hdle/config.yaml \
+          -e HDLE_MAILMAP \
+          -e HDLE_TASKS \
+          ghcr.io/umarcor/gource/xrun \
+          /action/logs.py
 
-  - name: Generate list of jobs and get logs
-    shell: python
-    run: |
-      from pathlib import Path
-      from subprocess import check_call
-
-      cfg = ${{ inputs.cfg }}
-      LogDir = Path('/tmp/glogs').resolve()
-      LogDir.mkdir(exist_ok=True)
-
-      mailmap = '''${{ inputs.mailmap }}'''.replace(',','\n')
-
-      for repo in list(set([
-          repo
-          for _, job in cfg.items()
-          for repo in job['tree'].keys()
-      ])):
-          idx = f"{repo.replace('/','--')}"
-          check_call(['git', 'clone', f'https://{repo}', idx])
-          if len(mailmap) != 0:
-              with (Path(idx) / '.mailmap').open('w') as fptr:
-                  fptr.write(mailmap)
-          authors = LogDir / f'{idx}.authors'
-          check_call(f'git log --pretty="%an <%ae>" | sort | uniq > {authors}', shell=True, cwd=idx)
-          check_call(['gource', '--output-custom-log', LogDir / f'{idx}.log', idx])
-
-      check_call(f'cat {LogDir!s}/*.authors | sort | uniq > {LogDir!s}/authors.mails', shell=True)
-      check_call(['rm', '-rf', f'{LogDir!s}/*.authors'])
-
-  - uses: actions/upload-artifact@v6
-    with:
-      name: ${{ inputs.artifact }}
-      path: /tmp/glogs
+    - uses: actions/upload-artifact@v6
+      with:
+        name: glogs
+        path: ${{ runner.temp }}/glogs

@@ -29,117 +29,41 @@ on:
 jobs:
 
 
-  Params:
+  Logs:
     runs-on: ubuntu-latest
     outputs:
-      cfg: ${{ steps.params.outputs.cfg }}
-      jobs: ${{ steps.params.outputs.jobs }}
-      mailmap: ${{ steps.params.outputs.mailmap }}
+      jobs: ${{ steps.logs.outputs.jobs }}
     steps:
 
     - uses: actions/checkout@v7
 
-    - name: Convert YAML config to JSON string
-      id: params
-      shell: python
-      run: |
-        from pathlib import Path
-        from subprocess import check_call
-        import yaml
-
-        ROOT = Path('.').resolve()
-
-        enabled = [
-            'EDAA',
-            'EDAA-Workflows',
-            'EDAA-Utilities',
-            'pyTooling',
-            'ghdl',
-            'nvc',
-            'verilator',
-            'osvvm',
-            'osvb',
-            'osvb-noroot',
-            'HDL',
-            'DBHI',
-            'VUnit',
-            'HDLC',
-            'NEORV32',
-            'CoCoTb',
-            'openFPGALoader',
-            'renode',
-            'spf13',
-            'f4pga-core',
-            'F4PGA',
-            'VTR',
-            'YosysHQ',
-            'LibreCores',
-            'Hitchhiker',
-            'iverilog',
-            'MSYS2',
-            'MSYS2-all',
-            'CHIPSAlliance',
-            'LiteX',
-            'FPGAwars'
-        ]
-
-        with (ROOT / 'config.yml').open('r') as fptr:
-            cfg = yaml.load(fptr, Loader=yaml.FullLoader)
-            for key in cfg:
-                cfg[key]['name'] = key
-            print(f"::set-output name=cfg::{cfg!s}")
-            jobs = [
-                {'name': key, 'title': job['title']}
-                for key, job in cfg.items()
-                if key in enabled
-            ]
-            print(f"::set-output name=jobs::{jobs!s}")
-
-        with (ROOT / '.mailmap').open('r') as fptr:
-            print(f"::set-output name=mailmap::{','.join(fptr.read().splitlines())!s}")
-
-
-  GetLogs:
-    needs: Params
-    runs-on: ubuntu-latest
-    steps:
-
-    - name: Get logs
-      uses: $/logs
+    - uses: $/logs
+      id: logs
       with:
-        cfg: ${{ needs.Params.outputs.cfg }}
-        mailmap: ${{ needs.Params.outputs.mailmap }}
-        artifact: glogs
+        config: config.yml
+        mailmap: .mailmap
+        tasks: |
+          ghdl
+          nvc
 
 
-  GenerateVideo:
-    needs:
-      - Params
-      - GetLogs
+  Videos:
+    needs: Logs
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        include: ${{ fromJson(needs.Params.outputs.jobs) }}
+        include: ${{ fromJSON(needs.Logs.outputs.jobs) }}
     name: ${{ matrix.name }} | ${{ matrix.title }}
     steps:
-
-    - name: Get job from config
-      shell: python
-      id: job
-      run: |
-        job = ${{ needs.Params.outputs.cfg }}['${{ matrix.name }}']
-        print(f"::set-output name=job::{job!s}")
-
-    - name: Combine logs and generate video
-      uses: $/video
+    - uses: $/video
       with:
         artifact: glogs
-        job: ${{ steps.job.outputs.job }}
+        job: ${{ toJSON(matrix) }}
 
 
   Release:
-    needs: GenerateVideo
+    needs: Videos
     runs-on: ubuntu-latest
     steps:
     - uses: actions/download-artifact@v7
