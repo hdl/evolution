@@ -24,7 +24,7 @@
     "title": "Dynamic Binary Hardware Injection (DBHI)"
   },
   "EDAA": {
-    "changes": 198127,
+    "changes": 198136,
     "contributors": 690,
     "first": "2011/08",
     "last": "2026/11",
@@ -40,7 +40,7 @@
     "title": "FOSS Flows For FPGA (F4PGA)"
   },
   "HDL": {
-    "changes": 18368,
+    "changes": 18369,
     "contributors": 133,
     "first": "2015/09",
     "last": "2026/11",
@@ -160,7 +160,7 @@
     "title": "Renode"
   },
   "verilator": {
-    "changes": 111357,
+    "changes": 111360,
     "contributors": 401,
     "first": "2006/08",
     "last": "2026/11",
