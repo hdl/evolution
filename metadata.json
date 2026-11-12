@@ -1,4 +1,20 @@
 {
+  "CHIPSAlliance": {
+    "changes": 556148,
+    "contributors": 676,
+    "first": "2011/08",
+    "last": "2026/11",
+    "repositories": 36,
+    "title": "CHIPS Alliance"
+  },
+  "CoCoTb": {
+    "changes": 30841,
+    "contributors": 285,
+    "first": "2013/06",
+    "last": "2026/11",
+    "repositories": 4,
+    "title": "CoCoTb"
+  },
   "DBHI": {
     "changes": 1826,
     "contributors": 6,
@@ -7,6 +23,30 @@
     "repositories": 9,
     "title": "Dynamic Binary Hardware Injection (DBHI)"
   },
+  "EDAA": {
+    "changes": 198127,
+    "contributors": 690,
+    "first": "2011/08",
+    "last": "2026/11",
+    "repositories": 38,
+    "title": "Electronic Design Automation Abstraction (EDAA)"
+  },
+  "F4PGA": {
+    "changes": 65187,
+    "contributors": 174,
+    "first": "2011/02",
+    "last": "2026/10",
+    "repositories": 45,
+    "title": "FOSS Flows For FPGA (F4PGA)"
+  },
+  "HDL": {
+    "changes": 18368,
+    "contributors": 133,
+    "first": "2015/09",
+    "last": "2026/11",
+    "repositories": 19,
+    "title": "github.com/hdl"
+  },
   "HDLC": {
     "changes": 6052,
     "contributors": 21,
@@ -14,5 +54,117 @@
     "last": "2026/11",
     "repositories": 4,
     "title": "HDL Containers"
+  },
+  "LibreCores": {
+    "changes": 7150,
+    "contributors": 24,
+    "first": "2015/02",
+    "last": "2021/05",
+    "repositories": 14,
+    "title": "LibreCores"
+  },
+  "LiteX": {
+    "changes": 336222,
+    "contributors": 1198,
+    "first": "2000/06",
+    "last": "2026/11",
+    "repositories": 35,
+    "title": "LiteX"
+  },
+  "NEORV32": {
+    "changes": 22531,
+    "contributors": 89,
+    "first": "2020/06",
+    "last": "2026/11",
+    "repositories": 3,
+    "title": "NEORV32"
+  },
+  "VTR": {
+    "changes": 186807,
+    "contributors": 260,
+    "first": "2011/06",
+    "last": "2026/11",
+    "repositories": 1,
+    "title": "Verilog to Routing"
+  },
+  "VUnit": {
+    "changes": 15441,
+    "contributors": 102,
+    "first": "2014/11",
+    "last": "2026/11",
+    "repositories": 11,
+    "title": "VUnit"
+  },
+  "YosysHQ": {
+    "changes": 103963,
+    "contributors": 609,
+    "first": "2013/01",
+    "last": "2026/11",
+    "repositories": 26,
+    "title": "Yosys HQ"
+  },
+  "ghdl": {
+    "changes": 46976,
+    "contributors": 153,
+    "first": "2005/09",
+    "last": "2026/11",
+    "repositories": 7,
+    "title": "github.com/ghdl"
+  },
+  "iverilog": {
+    "changes": 55241,
+    "contributors": 134,
+    "first": "1998/11",
+    "last": "2026/11",
+    "repositories": 2,
+    "title": "Icarus Verilog"
+  },
+  "nvc": {
+    "changes": 33786,
+    "contributors": 52,
+    "first": "2011/06",
+    "last": "2026/11",
+    "repositories": 2,
+    "title": "github.com/nickg/nvc"
+  },
+  "openFPGALoader": {
+    "changes": 4115,
+    "contributors": 204,
+    "first": "2019/09",
+    "last": "2026/11",
+    "repositories": 1,
+    "title": "openFPGALoader"
+  },
+  "osvb": {
+    "changes": 87636,
+    "contributors": 415,
+    "first": "2011/11",
+    "last": "2026/11",
+    "repositories": 12,
+    "title": "Open Source Verification Bundle (OSVB)"
+  },
+  "osvvm": {
+    "changes": 11517,
+    "contributors": 24,
+    "first": "2015/12",
+    "last": "2026/10",
+    "repositories": 7,
+    "title": "github.com/OSVVM"
+  },
+  "renode": {
+    "changes": 13179,
+    "contributors": 138,
+    "first": "2017/07",
+    "last": "2026/11",
+    "repositories": 1,
+    "title": "Renode"
+  },
+  "verilator": {
+    "changes": 111357,
+    "contributors": 401,
+    "first": "2006/08",
+    "last": "2026/11",
+    "repositories": 4,
+    "title": "github.com/verilator"
   }
 }
