@@ -1,14 +1,14 @@
 {
   "CHIPSAlliance": {
-    "changes": 556164,
-    "contributors": 608,
+    "changes": 556201,
+    "contributors": 595,
     "first": "2011/08",
     "last": "2026/11",
     "repositories": 36,
     "title": "CHIPS Alliance"
   },
   "CoCoTb": {
-    "changes": 30841,
+    "changes": 30842,
     "contributors": 282,
     "first": "2013/06",
     "last": "2026/11",
@@ -24,8 +24,8 @@
     "title": "Dynamic Binary Hardware Injection (DBHI)"
   },
   "EDAA": {
-    "changes": 198136,
-    "contributors": 662,
+    "changes": 198147,
+    "contributors": 659,
     "first": "2011/08",
     "last": "2026/11",
     "repositories": 38,
@@ -33,7 +33,7 @@
   },
   "F4PGA": {
     "changes": 65187,
-    "contributors": 165,
+    "contributors": 161,
     "first": "2011/02",
     "last": "2026/10",
     "repositories": 45,
@@ -64,8 +64,8 @@
     "title": "LibreCores"
   },
   "LiteX": {
-    "changes": 336222,
-    "contributors": 1130,
+    "changes": 336312,
+    "contributors": 1122,
     "first": "2000/06",
     "last": "2026/11",
     "repositories": 35,
@@ -73,15 +73,15 @@
   },
   "NEORV32": {
     "changes": 22531,
-    "contributors": 89,
+    "contributors": 88,
     "first": "2020/06",
     "last": "2026/11",
     "repositories": 3,
     "title": "NEORV32"
   },
   "VTR": {
-    "changes": 186807,
-    "contributors": 223,
+    "changes": 186811,
+    "contributors": 219,
     "first": "2011/06",
     "last": "2026/11",
     "repositories": 1,
@@ -96,8 +96,8 @@
     "title": "VUnit"
   },
   "YosysHQ": {
-    "changes": 103963,
-    "contributors": 601,
+    "changes": 104029,
+    "contributors": 597,
     "first": "2013/01",
     "last": "2026/11",
     "repositories": 26,
@@ -105,15 +105,15 @@
   },
   "ghdl": {
     "changes": 46976,
-    "contributors": 151,
+    "contributors": 150,
     "first": "2005/09",
     "last": "2026/11",
     "repositories": 7,
     "title": "github.com/ghdl"
   },
   "iverilog": {
-    "changes": 55241,
-    "contributors": 133,
+    "changes": 55339,
+    "contributors": 132,
     "first": "1998/11",
     "last": "2026/11",
     "repositories": 2,
@@ -128,15 +128,15 @@
     "title": "github.com/nickg/nvc"
   },
   "openFPGALoader": {
-    "changes": 4115,
-    "contributors": 205,
+    "changes": 4117,
+    "contributors": 204,
     "first": "2019/09",
     "last": "2026/11",
     "repositories": 1,
     "title": "openFPGALoader"
   },
   "osvb": {
-    "changes": 87636,
+    "changes": 87637,
     "contributors": 405,
     "first": "2011/11",
     "last": "2026/11",
@@ -152,15 +152,15 @@
     "title": "github.com/OSVVM"
   },
   "renode": {
-    "changes": 13179,
-    "contributors": 130,
+    "changes": 13183,
+    "contributors": 129,
     "first": "2017/07",
     "last": "2026/11",
     "repositories": 1,
     "title": "Renode"
   },
   "verilator": {
-    "changes": 111360,
+    "changes": 111469,
     "contributors": 401,
     "first": "2006/08",
     "last": "2026/11",
