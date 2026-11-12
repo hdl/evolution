@@ -1,7 +1,7 @@
 {
   "CHIPSAlliance": {
-    "changes": 556148,
-    "contributors": 676,
+    "changes": 556164,
+    "contributors": 608,
     "first": "2011/08",
     "last": "2026/11",
     "repositories": 36,
@@ -9,7 +9,7 @@
   },
   "CoCoTb": {
     "changes": 30841,
-    "contributors": 285,
+    "contributors": 282,
     "first": "2013/06",
     "last": "2026/11",
     "repositories": 4,
@@ -25,7 +25,7 @@
   },
   "EDAA": {
     "changes": 198136,
-    "contributors": 690,
+    "contributors": 662,
     "first": "2011/08",
     "last": "2026/11",
     "repositories": 38,
@@ -33,15 +33,15 @@
   },
   "F4PGA": {
     "changes": 65187,
-    "contributors": 174,
+    "contributors": 165,
     "first": "2011/02",
     "last": "2026/10",
     "repositories": 45,
     "title": "FOSS Flows For FPGA (F4PGA)"
   },
   "HDL": {
-    "changes": 18369,
-    "contributors": 133,
+    "changes": 18370,
+    "contributors": 131,
     "first": "2015/09",
     "last": "2026/11",
     "repositories": 19,
@@ -57,7 +57,7 @@
   },
   "LibreCores": {
     "changes": 7150,
-    "contributors": 24,
+    "contributors": 22,
     "first": "2015/02",
     "last": "2021/05",
     "repositories": 14,
@@ -65,7 +65,7 @@
   },
   "LiteX": {
     "changes": 336222,
-    "contributors": 1198,
+    "contributors": 1130,
     "first": "2000/06",
     "last": "2026/11",
     "repositories": 35,
@@ -81,7 +81,7 @@
   },
   "VTR": {
     "changes": 186807,
-    "contributors": 260,
+    "contributors": 223,
     "first": "2011/06",
     "last": "2026/11",
     "repositories": 1,
@@ -89,7 +89,7 @@
   },
   "VUnit": {
     "changes": 15441,
-    "contributors": 102,
+    "contributors": 99,
     "first": "2014/11",
     "last": "2026/11",
     "repositories": 11,
@@ -97,7 +97,7 @@
   },
   "YosysHQ": {
     "changes": 103963,
-    "contributors": 609,
+    "contributors": 601,
     "first": "2013/01",
     "last": "2026/11",
     "repositories": 26,
@@ -105,7 +105,7 @@
   },
   "ghdl": {
     "changes": 46976,
-    "contributors": 153,
+    "contributors": 151,
     "first": "2005/09",
     "last": "2026/11",
     "repositories": 7,
@@ -113,7 +113,7 @@
   },
   "iverilog": {
     "changes": 55241,
-    "contributors": 134,
+    "contributors": 133,
     "first": "1998/11",
     "last": "2026/11",
     "repositories": 2,
@@ -121,7 +121,7 @@
   },
   "nvc": {
     "changes": 33786,
-    "contributors": 52,
+    "contributors": 49,
     "first": "2011/06",
     "last": "2026/11",
     "repositories": 2,
@@ -129,7 +129,7 @@
   },
   "openFPGALoader": {
     "changes": 4115,
-    "contributors": 204,
+    "contributors": 205,
     "first": "2019/09",
     "last": "2026/11",
     "repositories": 1,
@@ -137,7 +137,7 @@
   },
   "osvb": {
     "changes": 87636,
-    "contributors": 415,
+    "contributors": 405,
     "first": "2011/11",
     "last": "2026/11",
     "repositories": 12,
@@ -153,7 +153,7 @@
   },
   "renode": {
     "changes": 13179,
-    "contributors": 138,
+    "contributors": 130,
     "first": "2017/07",
     "last": "2026/11",
     "repositories": 1,
