@@ -21,8 +21,9 @@
 # SPDX-License-Identifier: Apache-2.0
 
 from os import environ
-from subprocess import check_call
+from subprocess import check_call, CalledProcessError
 from pathlib import Path
+from shutil import rmtree
 import yaml
 from json import dumps as json_dumps
 
@@ -44,7 +45,11 @@ all_authors = set()
 for repo in {repo for item in jobs for repo in item['tree']}:
   idx = f"{repo.replace('/','--')}"
   repo_dir = Path(idx)
-  check_call(['git', 'clone', f'https://{repo}', idx])
+  try:
+    check_call(['git', 'clone', '--filter=blob:none', '--no-checkout', f'https://{repo}', idx])
+  except CalledProcessError:
+    rmtree(idx, ignore_errors=True)
+    check_call(['git', 'clone', '--no-checkout', f'https://{repo}', idx])
   if mailmap:
     (repo_dir / '.mailmap').write_text('\n'.join(mailmap)+'\n')
   authors = LogDir / f'{idx}.authors'
