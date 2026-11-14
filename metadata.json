@@ -1,6 +1,6 @@
 {
   "CHIPSAlliance": {
-    "changes": 556301,
+    "changes": 556361,
     "contributors": 588,
     "first": "2011/08",
     "last": "2026/11",
@@ -8,7 +8,7 @@
     "title": "CHIPS Alliance"
   },
   "CoCoTb": {
-    "changes": 30842,
+    "changes": 30843,
     "contributors": 275,
     "first": "2013/06",
     "last": "2026/11",
@@ -24,7 +24,7 @@
     "title": "Dynamic Binary Hardware Injection (DBHI)"
   },
   "EDAA": {
-    "changes": 198181,
+    "changes": 198182,
     "contributors": 643,
     "first": "2011/08",
     "last": "2026/11",
@@ -104,15 +104,15 @@
     "title": "Yosys HQ"
   },
   "ghdl": {
-    "changes": 46976,
-    "contributors": 150,
+    "changes": 46983,
+    "contributors": 151,
     "first": "2005/09",
     "last": "2026/11",
     "repositories": 7,
     "title": "github.com/ghdl"
   },
   "iverilog": {
-    "changes": 55354,
+    "changes": 55511,
     "contributors": 132,
     "first": "1998/11",
     "last": "2026/11",
@@ -128,7 +128,7 @@
     "title": "github.com/nickg/nvc"
   },
   "openFPGALoader": {
-    "changes": 4126,
+    "changes": 4130,
     "contributors": 201,
     "first": "2019/09",
     "last": "2026/11",
@@ -136,7 +136,7 @@
     "title": "openFPGALoader"
   },
   "osvb": {
-    "changes": 87637,
+    "changes": 87638,
     "contributors": 395,
     "first": "2011/11",
     "last": "2026/11",
@@ -160,7 +160,7 @@
     "title": "Renode"
   },
   "verilator": {
-    "changes": 111747,
+    "changes": 111768,
     "contributors": 399,
     "first": "2006/08",
     "last": "2026/11",
