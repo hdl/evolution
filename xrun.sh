@@ -27,7 +27,7 @@ OUTPUT_NAME="${GOURCE_REPO:-.}/${GOURCE_NAME:-gource}"
 xvfb-run --auto-servernum --server-args="-screen 0, ${GOURCE_RESOLUTION:-1920x1080}x24" \
   gource \
     --key \
-    -c 0.7 \
+    -c 1.25 \
     --highlight-users \
     --highlight-dirs \
     --hide bloom,filenames \
@@ -40,10 +40,13 @@ xvfb-run --auto-servernum --server-args="-screen 0, ${GOURCE_RESOLUTION:-1920x10
     --output-framerate 60 \
     --dir-name-depth 2 \
     --file-idle-time 0 \
+    --max-user-speed 250 \
+    --user-friction 0.3 \
+    --multi-sampling \
     --frameless \
     -"${GOURCE_RESOLUTION:-1920x1080}" \
     -a "${GOURCE_AUTO_SKIP_SECONDS:-0.05}" \
-    -s "${GOURCE_SECONDS_PER_DAY:-0.15}" \
+    -s "${GOURCE_SECONDS_PER_DAY:-0.125}" \
     --title "${GOURCE_TITLE:-Title}" \
     "$@" -o - |
   ffmpeg -y \
