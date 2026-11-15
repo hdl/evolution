@@ -40,7 +40,7 @@
     "title": "FOSS Flows For FPGA (F4PGA)"
   },
   "HDL": {
-    "changes": 18372,
+    "changes": 18373,
     "contributors": 127,
     "first": "2015/09",
     "last": "2026/11",
@@ -111,8 +111,16 @@
     "repositories": 7,
     "title": "github.com/ghdl"
   },
+  "gtkwave": {
+    "changes": 7174,
+    "contributors": 43,
+    "first": "2019/11",
+    "last": "2026/11",
+    "repositories": 3,
+    "title": "GTKWave"
+  },
   "iverilog": {
-    "changes": 55712,
+    "changes": 55738,
     "contributors": 133,
     "first": "1998/11",
     "last": "2026/11",
@@ -160,7 +168,7 @@
     "title": "Renode"
   },
   "verilator": {
-    "changes": 111903,
+    "changes": 111921,
     "contributors": 399,
     "first": "2006/08",
     "last": "2026/11",
