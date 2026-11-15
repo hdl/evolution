@@ -24,7 +24,7 @@
     "title": "Dynamic Binary Hardware Injection (DBHI)"
   },
   "EDAA": {
-    "changes": 198252,
+    "changes": 198428,
     "contributors": 643,
     "first": "2011/08",
     "last": "2026/11",
@@ -40,7 +40,7 @@
     "title": "FOSS Flows For FPGA (F4PGA)"
   },
   "HDL": {
-    "changes": 18371,
+    "changes": 18372,
     "contributors": 127,
     "first": "2015/09",
     "last": "2026/11",
@@ -72,7 +72,7 @@
     "title": "LiteX"
   },
   "NEORV32": {
-    "changes": 22606,
+    "changes": 22626,
     "contributors": 89,
     "first": "2020/06",
     "last": "2026/11",
@@ -96,7 +96,7 @@
     "title": "VUnit"
   },
   "YosysHQ": {
-    "changes": 104067,
+    "changes": 104068,
     "contributors": 591,
     "first": "2013/01",
     "last": "2026/11",
@@ -104,7 +104,7 @@
     "title": "Yosys HQ"
   },
   "ghdl": {
-    "changes": 47070,
+    "changes": 47156,
     "contributors": 151,
     "first": "2005/09",
     "last": "2026/11",
@@ -112,15 +112,15 @@
     "title": "github.com/ghdl"
   },
   "iverilog": {
-    "changes": 55537,
-    "contributors": 132,
+    "changes": 55712,
+    "contributors": 133,
     "first": "1998/11",
     "last": "2026/11",
     "repositories": 2,
     "title": "Icarus Verilog"
   },
   "nvc": {
-    "changes": 33786,
+    "changes": 33794,
     "contributors": 47,
     "first": "2011/06",
     "last": "2026/11",
@@ -160,7 +160,7 @@
     "title": "Renode"
   },
   "verilator": {
-    "changes": 111878,
+    "changes": 111903,
     "contributors": 399,
     "first": "2006/08",
     "last": "2026/11",
