@@ -75,6 +75,13 @@ ghdl:
     github.com/ghdl/extended-tests: extended-tests
     github.com/ghdl/setup-ghdl-ci: setup-ghdl-ci
 
+gtkwave:
+  title: GTKWave
+  tree:
+    github.com/gtkwave/gtkwave: gtkwave
+    github.com/gtkwave/libfst: libfst
+    github.com/gtkwave/libfstwriter: libfstwriter
+
 nvc:
   title: github.com/nickg/nvc
   tree:
