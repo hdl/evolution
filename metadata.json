@@ -1,6 +1,6 @@
 {
   "CHIPSAlliance": {
-    "changes": 556361,
+    "changes": 556365,
     "contributors": 588,
     "first": "2011/08",
     "last": "2026/11",
@@ -24,7 +24,7 @@
     "title": "Dynamic Binary Hardware Injection (DBHI)"
   },
   "EDAA": {
-    "changes": 198182,
+    "changes": 198252,
     "contributors": 643,
     "first": "2011/08",
     "last": "2026/11",
@@ -72,8 +72,8 @@
     "title": "LiteX"
   },
   "NEORV32": {
-    "changes": 22576,
-    "contributors": 88,
+    "changes": 22606,
+    "contributors": 89,
     "first": "2020/06",
     "last": "2026/11",
     "repositories": 3,
@@ -96,7 +96,7 @@
     "title": "VUnit"
   },
   "YosysHQ": {
-    "changes": 104065,
+    "changes": 104067,
     "contributors": 591,
     "first": "2013/01",
     "last": "2026/11",
@@ -104,7 +104,7 @@
     "title": "Yosys HQ"
   },
   "ghdl": {
-    "changes": 46983,
+    "changes": 47070,
     "contributors": 151,
     "first": "2005/09",
     "last": "2026/11",
@@ -112,7 +112,7 @@
     "title": "github.com/ghdl"
   },
   "iverilog": {
-    "changes": 55511,
+    "changes": 55537,
     "contributors": 132,
     "first": "1998/11",
     "last": "2026/11",
@@ -160,7 +160,7 @@
     "title": "Renode"
   },
   "verilator": {
-    "changes": 111768,
+    "changes": 111878,
     "contributors": 399,
     "first": "2006/08",
     "last": "2026/11",
